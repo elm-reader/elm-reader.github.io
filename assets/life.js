@@ -4077,7 +4077,7 @@ outer:
   var messageConstructor =
     (event.type === "mouseover"
       ? elm$browser$Reader$Msg$HoverExpr
-      : event.shiftKey ? elm$browser$Reader$Msg$PinExpr : elm$browser$Reader$Msg$OpenExpr);
+      : event.type === "dblclick" ? elm$browser$Reader$Msg$PinExpr : elm$browser$Reader$Msg$OpenExpr);
   return elm$json$Json$Decode$succeed(
     A2(messageConstructor,
       A2(elm$browser$Reader$TraceData$FrameId, frameId, _List_Nil),
@@ -9383,6 +9383,10 @@ var elm$browser$Reader$viewOutlineSidebar = F2(
 	});
 var elm$browser$Reader$Flex$column = elm$browser$Reader$Flex$columnWith(_List_Nil);
 var elm$browser$Reader$Msg$UnHoverExpr = {$: 'UnHoverExpr'};
+var elm$browser$Reader$StackUI$onMouseDblClick = A2(
+	elm$html$Html$Events$on,
+	'dblclick',
+	A2(elm$json$Json$Decode$andThen, _Reader_mouseEventToMessage, elm$json$Json$Decode$value));
 var elm$browser$Reader$StackUI$onMouseDown = A2(
 	elm$html$Html$Events$on,
 	'mousedown',
@@ -10768,7 +10772,8 @@ var elm$browser$Reader$StackUI$viewStackUI = function (stackUI) {
 							elm$html$Html$Attributes$class('elm-reader-stack'),
 							elm$html$Html$Events$onMouseOut(elm$browser$Reader$Msg$UnHoverExpr),
 							elm$browser$Reader$StackUI$onMouseOver,
-							elm$browser$Reader$StackUI$onMouseDown
+							elm$browser$Reader$StackUI$onMouseDown,
+							elm$browser$Reader$StackUI$onMouseDblClick
 						]),
 					stackHeight),
 				A2(
