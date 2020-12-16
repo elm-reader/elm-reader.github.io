@@ -1,0 +1,145 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(assets/Montserrat/Montserrat-Light.ttf);
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(assets/Montserrat/Montserrat-Medium.ttf);
+    font-weight: bold;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Montserrat, Helvetica;
+    display: flex;
+    flex-direction: column;
+}
+
+#fork-me {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.heading {
+    position: relative;
+    margin-left: 20%;
+    width: 60%;
+    flex: 0.2;
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.heading header {
+    font-size: 30pt;
+    margin-bottom: 5px;
+}
+.heading .topright img, .heading .topright svg {
+    margin: 15px;
+}
+.heading .topright {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+main {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 3px;
+    font-size: 1em;
+}
+
+main li {
+    margin: 15px;
+}
+
+main a {
+    text-decoration: none;
+}
+
+main a:visited {
+    color: blue;
+}
+main a:hover {
+    text-decoration: underline;
+}
+main a:active {
+    color: #faa700;
+}
+
+main p, main .paragraph, main h2 {
+    margin-left: 20%;
+    width: 60%;
+}
+
+main .video {
+    text-align: center;
+}
+main .video video {
+    width: 90%;
+}
+
+main h2 {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    color: #444;
+}
+
+#try-it {
+    flex: 0.8;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#debugger-corner {
+    visibility: hidden;
+}
+
+#elm-container {
+    display: inline-block;
+    flex: 0.3;
+    box-sizing: content-box;
+    
+    /* border: 1px solid rgba(0,0,0,0.25); */
+    padding: 6px;
+}
+
+#elm-container svg rect {
+    stroke: 1px;
+}
+#elm-container svg rect:hover {
+    stroke: black;
+    stroke-dasharray: 40;
+    stroke: 1px;
+}
+
+center {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+#debugger-container {
+    flex: 0.7;
+    box-sizing: content-box;
+    
+    /* border: 1px solid rgba(0,0,0,0.25); */
+    padding: 6px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#debugger-window {
+    flex: 1;
+    width: 100%;
+}
