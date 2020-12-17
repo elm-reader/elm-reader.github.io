@@ -40,7 +40,7 @@ body {
     margin-bottom: 5px;
 }
 .heading .topright img, .heading .topright svg {
-    margin: 15px;
+    margin-top: 15px;
 }
 .heading .topright {
     position: absolute;
