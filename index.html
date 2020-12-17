@@ -37,7 +37,7 @@
       </p>
 
       <p class="video">
-        <video src="assets/video.mov" controls autoplay muted loop></video>
+        <video id="dbg-video" src="assets/video.mp4" controls autoplay muted loop></video>
       </p>
 
 
@@ -106,7 +106,6 @@
       Elm.Main.init({ node: document.getElementById("elm") });
       document.getElementById("debugger-corner").firstChild.click();
       setTimeout(function () { document.getElementById("debugger-corner").remove(); }, 300);
-      document.getElementsByTagName("video")[0].playbackRate = 2.0;
     </script>
   </body>
 </html>
