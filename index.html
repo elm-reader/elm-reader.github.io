@@ -62,11 +62,12 @@
         <ul>
           <li>
             <b>"Bookmarks" not "breakpoints" &mdash;</b>
-            When using traditional debuggers, we often have to think
-            to decide whether to Continue to the next breakpoint, and do so carefully
-            lest we go to far and have to start over. Time-travelling debugging dramatically changes this,
+            When using traditional debuggers, we often have to stop and think
+            to decide whether to Continue to the next breakpoint. If
+            we go to far, we'll miss the anomaly and have to start over.
+            Time-travelling debugging radically changes this,
             allowing the developer to freely navigate
-            between each "breakpoint" or "bookmark" in an execution, without loss of
+            between and around every "breakpoint" or "bookmark" in an execution, without loss of
             analytical power or performance.
           </li>
           <li>
@@ -79,18 +80,18 @@
             it easy to explore a program execution with flexibility.
           </li>
           <li>
-            <b>"Where did that state go wrong?" &mdash;</b> Often when debugging, you'll know some
-            state to be incorrect and the entire problem is to identify when and where that state
-            was created. In the Elm Reader, it will be feasible to add a "find origin"
+            <b>"Where did that state go wrong?" &mdash;</b> Often when debugging, one knows some
+            state to be incorrect and the whole problem is to identify when and where that state
+            was created. In the Elm Reader, it is feasible to add a "find origin"
             tool to record a runtime ID for a value in a stack frame, re-run the
-            tick in the program, and identify any frame which used that value, and
+            tick in the program, and rewind to any frame which used that value,
             in particular the one which created it. To be sure, this incurs a runtime
-            cost, but a manageable one for the overwhelming majority of cases.
+            cost, but a manageable one for the great majority of cases.
           </li>
           <li>
             <b>Prefetching information &mdash;</b> The reader already "prefetches" the values of
-            each expression in a frame for immediate inspection. It's trivial to supplement this
-            with the execution time of each invoked function or other useful metadata
+            each expression in a stack frame for immediate inspection. It's trivial to supplement this
+            with the execution time of each invoked function and other useful metadata
             <b>while imposing trivial runtime cost</b> due to the lazy computation of trace information at runtime.
             Effectively, that metadata can be computed on just the frame being viewed, with all
             sub-frames (and hence most of the computation) running untraced.
