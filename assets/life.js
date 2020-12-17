@@ -14001,7 +14001,7 @@ var elm$browser$Debugger$History$styles = A3(
 		[
 			elm$html$Html$text('\n\n.elm-debugger-entry {\n  cursor: pointer;\n  width: 100%;\n}\n\n.elm-debugger-entry:hover {\n  background-color: rgb(41, 41, 41);\n}\n\n.elm-debugger-entry-selected, .elm-debugger-entry-selected:hover {\n  background-color: rgb(10, 10, 10);\n}\n\n.elm-debugger-entry-content {\n  width: calc(100% - 7ch);\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-left: 1ch;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n}\n\n.elm-debugger-entry-index {\n  color: #666;\n  width: 5ch;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-right: 1ch;\n  text-align: right;\n  display: block;\n  float: right;\n}\n\n')
 		]));
-var elm$browser$Debugger$History$maxSnapshotSize = 64;
+var elm$browser$Debugger$History$maxSnapshotSize = 10;
 var elm$browser$Debugger$History$viewSnapshot = F3(
 	function (currentIndex, index, _n0) {
 		var messages = _n0.messages;
