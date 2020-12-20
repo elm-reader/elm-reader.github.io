@@ -1,8 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KQYQGCXMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6KQYQGCXMQ');
+    </script>
+
     <title>Elm Reader</title>
     <meta charset="UTF-8" />
+
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
@@ -52,6 +63,26 @@
           <center>Debug</center>
           <iframe id="debugger-window"></iframe>
         </div>
+      </div>
+      <div class="paragraph">
+        <ol>
+          <li>
+            Press <b>"Start"</b> in Conway's Game of Life (or make your own mosaic).
+          </li>
+          <li>
+            <b>In the gray sidebar,</b>
+            see the messages sent to the program by user interactions.
+          </li>
+          <li>
+            <b>Click a message</b> in the gray sidebar to pause the program and <b>rewind</b> to when it was produced.
+          </li>
+          <li>
+            <b>Navigate</b> the code on the right to see how the next state of Conway's Game of Life was generated after that message.
+          </li>
+          <li>
+            Hit <b>"Resume"</b> to interact more with Conway's Game of Life
+          </li>
+        </ol>
       </div>
 
       <h2>The Future</h2>
