@@ -45,13 +45,32 @@
         navigated as a lazily-evaluated tree. This means <b>stepping backward is as easy as stepping forward.</b>
       </p>
 
-      <p class="video">
+      <div class="paragraph video">
         <video id="dbg-video" src="assets/video.mp4" controls autoplay muted loop></video>
-      </p>
-
+      </div>
 
       <h2>Try it</h2>
 
+      <div class="paragraph">
+        <ol>
+          <li>
+            Press <b>"Start"</b> in Conway's Game of Life to run the simulation (or edit the mosaic first).
+          </li>
+          <li>
+            <b>In the gray sidebar,</b>
+            see the messages (events) sent to the program by user interactions.
+          </li>
+          <li>
+            <b>Click a message</b> in the gray sidebar to <b>pause</b> the program and <b>rewind</b> to when it was produced.
+          </li>
+          <li>
+            <b>Navigate</b> through the code on the right to see how the next state of Conway's Game of Life was generated as a result of that message. <b>Click</b> on function calls to descend the stack, <b>hover</b> over expressions to see their values, and <b>double-click</b> expressions to pin them.
+          </li>
+          <li>
+            Hit <b>"Resume"</b> to interact more with Conway's Game of Life
+          </li>
+        </ol>
+      </div>
       <div id="try-it">
         <div id="elm-container">
           <center>Conway's Game of Life</center>
@@ -62,26 +81,31 @@
           <iframe id="debugger-window"></iframe>
         </div>
       </div>
-      <div class="paragraph">
-        <ol>
-          <li>
-            Press <b>"Start"</b> in Conway's Game of Life (or make your own mosaic).
-          </li>
-          <li>
-            <b>In the gray sidebar,</b>
-            see the messages sent to the program by user interactions.
-          </li>
-          <li>
-            <b>Click a message</b> in the gray sidebar to pause the program and <b>rewind</b> to when it was produced.
-          </li>
-          <li>
-            <b>Navigate</b> the code on the right to see how the next state of Conway's Game of Life was generated after that message.
-          </li>
-          <li>
-            Hit <b>"Resume"</b> to interact more with Conway's Game of Life
-          </li>
-        </ol>
-      </div>
+
+      <h2>Context</h2>
+      <p>
+        Elm, a functional programming language for front-end software, ships with
+        a debugging tool which allows the programmer to <b>view</b> the model (the state of the program)
+        at any previous point in the execution of an Elm program. This is fantastic
+        for finding <b>when</b> the model became bad or corrupted, but doesn't really help to
+        identify <b>why</b> the model became corrupted, i.e. to see how the code
+        generated a bad model. The Elm Reader fills this gap, and in doing so experiments with
+        a whole new kind of debugger.
+      </p>
+
+      <p>
+        In the demo and video above, everything in the debugging window with a <b>white
+        background</b> is the Elm Reader. When rewinding the program to an event from the past, in addition to showing
+        the state of the program when that event occured, the Elm Reader allows the user to arbitrarily navigate
+        the call to <code>update</code> which generated the next value of the model. Descending
+        a function call does not preclude you from going "back in time" to descend a prior call from earlier in
+        the program execution.
+      </p>
+
+      <p>
+        The Elm Reader is <a href="https://github.com/elm-reader">open-source</a>,
+        and we will open a PR to merge upstream later this year!
+      </p>
 
       <h2>The Future</h2>
       <div class="paragraph">
@@ -103,26 +127,25 @@
             Examples in documentation can turbocharge onboarding. But they generally don't help
             you understand what's happening beneath the exact API used in the example.
             The Elm Reader is a way to improve the teaching potential of
-            code examples, allowing dynamic exploration of how any invoked function works.
+            code examples by allowing dynamic exploration of how any invoked function works.
             Ultimately we learn by poking and experimenting, and time-traveling debugging makes
             it easy to explore a program execution with flexibility.
           </li>
           <li>
             <b>"Where did that state go wrong?" &mdash;</b> Often when debugging, one knows some
             state to be incorrect and the whole problem is to identify when and where that state
-            was created. In the Elm Reader, it is feasible to add a "find origin"
+            was created. In the Elm Reader, we will experiment with adding a "find origin"
             tool to record a runtime ID for a value in a stack frame, re-run the
-            tick in the program, and rewind to any frame which used that value,
-            in particular the one which created it. To be sure, this incurs a runtime
-            cost, but a manageable one for the great majority of cases.
+            tick in the program, and rewind to the stack frame which created that value.
           </li>
           <li>
             <b>Prefetching information &mdash;</b> The reader already "prefetches" the values of
-            each expression in a stack frame for immediate inspection. It's trivial to supplement this
-            with the execution time of each invoked function and other useful metadata
+            each expression in a stack frame for immediate inspection; it can do this because Elm is pure,
+            so executing each of those expressions does not clobber state. A trivial extension of this idea would be to
+            record the execution time of each invoked function, or collect other useful metrics,
             <b>while imposing trivial runtime cost</b> due to the lazy computation of trace information at runtime.
-            Effectively, that metadata can be computed on just the frame being viewed, with all
-            sub-frames (and hence most of the computation) running untraced.
+            The ability to <b>prefetch</b> information by executing code that the user has not yet reached
+            opens up a wealth of design opportunities.
           </li>
         </ul>
       </div>
