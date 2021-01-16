@@ -95,10 +95,11 @@
 
       <p>
         In the demo and video above, everything in the debugging window with a <b>white
-        background</b> is the Elm Reader. When rewinding the program to an event from the past, in addition to showing
-        the state of the program when that event occured, the Elm Reader allows the user to arbitrarily navigate
-        the call to <code>update</code> which generated the next value of the model. Descending
-        a function call does not preclude you from going "back in time" to descend a prior call from earlier in
+        background</b> is the Elm Reader. When rewinding the program to an event from the past, the Elm Reader not only
+        shows
+        the contents of the model when that event occured, but also allows the user to arbitrarily navigate
+        the call to <code>update</code> which generated the next value of the model in response to the event. Opening
+        a function call does not preclude you from going "back in time" to open a prior call from earlier in
         the program execution.
       </p>
 
